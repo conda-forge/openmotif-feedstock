@@ -54,6 +54,7 @@ outputs:
     script: install_dev.sh
     requirements:
       - openmotif
+      - xorg-printproto
   - name: openmotif
     script: install_main.sh
   - name: openmotif-doc

@@ -101,22 +101,24 @@ def main():
     recipe_dir, owner, channel = args.recipe_dir, args.owner, args.channel
 
     cli = get_binstar(argparse.Namespace(token=token, site=None))
-    meta = MetaData(recipe_dir)
-    if meta.skip():
-        print("No upload to take place - this configuration was skipped in build/skip.")
-        return
-    exists = built_distribution_already_exists(cli, meta, owner)
-    if token:
-        if not exists:
-            upload(cli, meta, owner, channel)
-            print('Uploaded {}'.format(bldpkg_path(meta)))
+    meta_main = MetaData(recipe_dir)
+    for _, meta in meta_main.get_output_metadata_set(files=None):
+        print("Processing {}".format(meta.name()))
+        if meta.skip():
+            print("No upload to take place - this configuration was skipped in build/skip.")
+            return
+        exists = built_distribution_already_exists(cli, meta, owner)
+        if token:
+            if not exists:
+                upload(cli, meta, owner, channel)
+                print('Uploaded {}'.format(bldpkg_path(meta)))
+            else:
+                print('Distribution {} already \nexists for {}.'
+                      ''.format(bldpkg_path(meta), owner))
         else:
-            print('Distribution {} already \nexists for {}.'
-                  ''.format(bldpkg_path(meta), owner))
-    else:
-        print("No BINSTAR_TOKEN present, so no upload is taking place. "
-              "The distribution just built {} already available for {}."
-              "".format('is' if exists else 'is not', owner))
+            print("No BINSTAR_TOKEN present, so no upload is taking place. "
+                  "The distribution just built {} already available for {}."
+                  "".format('is' if exists else 'is not', owner))
 
 if __name__ == '__main__':
     main()
