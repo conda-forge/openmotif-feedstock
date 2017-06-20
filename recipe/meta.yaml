@@ -16,7 +16,7 @@ source:
     - patch-lib-XmP.h.diff
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win]
 
 requirements:
@@ -55,12 +55,23 @@ outputs:
     requirements:
       - openmotif
       - xorg-printproto
+
   - name: openmotif
     script: install_main.sh
+    requirements:
+      - freetype 2.7|2.7.*
+      - fontconfig 2.12.*
+      - libpng >=1.6.28,<1.7
+      - jpeg 9*
+      - xorg-libxt
+      - xorg-libxext
+      - xorg-libxft
+      - xorg-libxp
+      - xorg-libxmu
+      - libiconv
+
   - name: openmotif-doc
     script: install_doc.sh
-    requirements:
-      - openmotif
 
 test:
   commands:
