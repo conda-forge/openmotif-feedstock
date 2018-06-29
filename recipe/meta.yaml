@@ -21,13 +21,15 @@ build:
 
 requirements:
   build:
-    - toolchain
     - pkg-config
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
     - flex
-    - freetype 2.7|2.7.*
-    - fontconfig 2.12.*
-    - libpng >=1.6.28,<1.7
-    - jpeg 9*
+    - freetype
+    - fontconfig
+    - libpng
+    - jpeg
     - xorg-libxt
     - xorg-libxext
     - xorg-libxft
@@ -38,10 +40,10 @@ requirements:
     - libiconv
 
   run:
-    - freetype 2.7|2.7.*
-    - fontconfig 2.12.*
-    - libpng >=1.6.28,<1.7
-    - jpeg 9*
+    - freetype
+    - fontconfig
+    - libpng
+    - jpeg
     - xorg-libxt
     - xorg-libxext
     - xorg-libxft
