@@ -56,16 +56,22 @@ test:
 outputs:
   - name: openmotif-dev
     script: install_dev.sh
+    build:
+      run_exports:
+        # clients need `openmotif` when using `openmotif-dev`
+        # ABI compatability looks rather unchanging:
+        # https://abi-laboratory.pro/index.php?view=timeline&l=motif
+        - {{ pin_subpackage('openmotif') }}
     requirements:
-      - openmotif
+      # `openmotiv-dev` headers are exactly for same version
+      - {{ pin_subpackage('openmotif', exact=True) }}
   - name: openmotif
     script: install_main.sh
   - name: openmotif-doc
     script: install_doc.sh
     requirements:
-      - openmotif
-
-
+      - {{ pin_subpackage('openmotif', exact=True) }}
+      
 about:
   home: http://motif.ics.com
   license: LGPL-2.1
