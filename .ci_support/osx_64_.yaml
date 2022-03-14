@@ -3,29 +3,27 @@ MACOSX_DEPLOYMENT_TARGET:
 c_compiler:
 - clang
 c_compiler_version:
-- '4'
+- '12'
 channel_sources:
-- conda-forge,defaults
+- conda-forge
 channel_targets:
 - conda-forge main
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '4'
+- '12'
 fontconfig:
 - '2.13'
 freetype:
-- 2.9.1
+- '2'
 jpeg:
 - '9'
 libiconv:
-- '1.15'
+- '1.16'
 libpng:
 - '1.6'
 macos_machine:
 - x86_64-apple-darwin13.4.0
-macos_min_version:
-- '10.9'
 pin_run_as_build:
   fontconfig:
     max_pin: x
@@ -37,3 +35,8 @@ pin_run_as_build:
     max_pin: x.x
   libpng:
     max_pin: x.x
+target_platform:
+- osx-64
+zip_keys:
+- - c_compiler_version
+  - cxx_compiler_version
