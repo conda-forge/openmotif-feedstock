@@ -10,6 +10,8 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://downloads.sourceforge.net/project/motif/Motif%20{{ version }}%20Source%20Code/motif-{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    - 0003_fix_ftbfs_binutils-gold.patch  # [linux]
 
 build:
   number: 3
@@ -17,6 +19,7 @@ build:
 
 requirements:
   build:
+    - make
     - pkg-config
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
@@ -71,7 +74,7 @@ outputs:
     script: install_doc.sh
     requirements:
       - {{ pin_subpackage('openmotif', exact=True) }}
-      
+
 about:
   home: http://motif.ics.com
   license: LGPL-2.1
