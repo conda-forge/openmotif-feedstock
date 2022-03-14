@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -xeuo pipefail
+
 case `uname` in
     Darwin)
 	export LDFLAGS="$LDFLAGS -Wl,-rpath,$PREFIX/lib -L$PREFIX/lib"
