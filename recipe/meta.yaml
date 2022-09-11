@@ -14,7 +14,7 @@ source:
     - 0003_fix_ftbfs_binutils-gold.patch  # [linux]
 
 build:
-  number: 3
+  number: 4
   skip: True  # [win]
 
 requirements:
@@ -53,8 +53,6 @@ requirements:
 test:
   commands:
     - 'test "`uil 2>&1| tr -d ''\n''`" = "Severe: no source file specified"'
-    - conda inspect linkages -p $PREFIX $PKG_NAME  # [not win]
-    - conda inspect objects -p $PREFIX $PKG_NAME  # [osx]
 
 outputs:
   - name: openmotif-dev
