@@ -21,6 +21,7 @@ requirements:
   build:
     - make
     - pkg-config
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
@@ -75,7 +76,7 @@ outputs:
 
 about:
   home: http://motif.ics.com
-  license: LGPL-2.1
+  license: LGPL-2.1-only
   license_family: LGPL
   license_file: COPYING
   summary: 'Motif user interface component toolkit.'
@@ -83,3 +84,4 @@ about:
 extra:
   recipe-maintainers:
     - epruesse
+    - martin-g
