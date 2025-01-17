@@ -24,9 +24,9 @@ requirements:
     - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
-    - {{ cdt('libx11-devel') }}          # [linux]
-    - {{ cdt('libxext-devel') }}         # [linux]
+    - {{ cdt('xorg-x11-proto-devel') }}
+    - {{ cdt('libx11-devel') }}
+    - {{ cdt('libxext-devel') }}
   host:
     - flex
     - freetype
