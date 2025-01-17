@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/openmotif-feeds
 
 Home: http://motif.ics.com
 
-Package license: LGPL-2.1
+Package license: LGPL-2.1-only
 
 Summary: Motif user interface component toolkit.
 
@@ -13,14 +13,7 @@ Current build status
 ====================
 
 
-<table><tr>
-    <td>Travis</td>
-    <td>
-      <a href="https://app.travis-ci.com/conda-forge/openmotif-feedstock">
-        <img alt="linux" src="https://img.shields.io/travis/com/conda-forge/openmotif-feedstock/main.svg?label=Linux">
-      </a>
-    </td>
-  </tr>
+<table>
     
   <tr>
     <td>Azure</td>
@@ -193,4 +186,5 @@ Feedstock Maintainers
 =====================
 
 * [@epruesse](https://github.com/epruesse/)
+* [@martin-g](https://github.com/martin-g/)
 
