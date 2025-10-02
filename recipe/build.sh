@@ -1,4 +1,6 @@
 #!/bin/bash
+# Get an updated config.sub and config.guess
+cp $BUILD_PREFIX/share/gnuconfig/config.* .
 
 set -xeuo pipefail
 
@@ -20,5 +22,7 @@ export CPPFLAGS="$CPPFLAGS -I$PREFIX/include"
 	    --enable-xft
 
 make -j${CPU_COUNT} | sed 's|'$PREFIX'|$PREFIX|g'
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}" != "" ]]; then
 make check | sed 's|'$PREFIX'|$PREFIX|g'
+fi
 make DESTDIR=`pwd`/install/ install | sed 's|'$PREFIX'|$PREFIX|g'
