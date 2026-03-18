@@ -41,9 +41,9 @@ requirements:
     - xorg-makedepend
     - libiconv
 
-    - xorg-xorgproto                   None
-    - xorg-libx11              None
-    - xorg-libxext              None
+    - xorg-xorgproto
+    - xorg-libx11
+    - xorg-libxext
   run:
     - freetype
     - fontconfig
