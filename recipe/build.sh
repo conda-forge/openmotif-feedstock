@@ -10,6 +10,7 @@ case `uname` in
 	;;
     Linux)
 	export LDFLAGS="$LDFLAGS -L$PREFIX/lib -liconv"
+	export CFLAGS="$CFLAGS -std=gnu17"
 	;;
 esac
 export CPPFLAGS="$CPPFLAGS -I$PREFIX/include"
